@@ -1,7 +1,7 @@
 # Bookmarker Collector App
 
 # Description
-This Bookmarker has full CRUD (Create, Read, Update, Delete) capability. Users can search by title, url or database id.
+This Bookmarker has full CRUD (Create, Read, Update, Delete) capability. Users can add bookmarks by including webpage title, url and details. Users can search by title, url, and database ID.
 
 # Technologies
 
@@ -9,4 +9,3 @@ This Bookmarker has full CRUD (Create, Read, Update, Delete) capability. Users c
 - PostgreSQL
 - PeeWee
 
-# Installation
