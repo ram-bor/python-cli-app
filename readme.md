@@ -8,3 +8,7 @@ This Bookmarker has full CRUD (Create, Read, Update, Delete) capability. Users c
 - Python3
 - PostgreSQL
 - PeeWee
+
+#Installation
+
+`pipenv install peewee psycopg2-binary autopep8`
