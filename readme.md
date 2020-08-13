@@ -10,5 +10,3 @@ This Bookmarker has full CRUD (Create, Read, Update, Delete) capability. Users c
 - PeeWee
 
 # Installation
-
-`pipenv install peewee psycopg2-binary autopep8`
