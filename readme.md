@@ -24,6 +24,4 @@ Create and seed database:
 
 Start the application:
 
-```python3 app.py
-
-```
+`python3 app.py`
