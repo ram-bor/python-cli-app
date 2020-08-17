@@ -2,7 +2,7 @@
 
 # Description
 
-This Bookmarker has full CRUD (Create, Read, Update, Delete) capability. Users can add bookmarks by including webpage title, url and details. Users can also update and delete a bookmark's title, url and details field by searching for the bookmark's associated webpage title.
+This Bookmarker has full CRUD (Create, Read, Update, Delete) capability. Users can add bookmarks by including webpage title, url and details. Users can make updates to a bookmark's title, url and details field by searching for the bookmark's associated webpage title and delete bookmark records in a similar way.
 
 # Technologies
 
@@ -13,9 +13,11 @@ This Bookmarker has full CRUD (Create, Read, Update, Delete) capability. Users c
 # Installation
 
 Install dependencies:
+
 `pipenv install peewee psycopg2-binary autopep8`
 
 Initialize virtual environment:
+
 `pipenv shell`
 
 Create and seed database:
