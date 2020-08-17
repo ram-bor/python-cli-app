@@ -13,9 +13,11 @@ This Bookmarker has full CRUD (Create, Read, Update, Delete) capability. Users c
 # Installation
 
 Install dependencies:
+
 `pipenv install peewee psycopg2-binary autopep8`
 
 Initialize virtual environment:
+
 `pipenv shell`
 
 Create and seed database:
