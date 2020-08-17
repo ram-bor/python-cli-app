@@ -2,7 +2,7 @@
 
 # Description
 
-This Bookmarker has full CRUD (Create, Read, Update, Delete) capability. Users can add bookmarks by including webpage title, url and details. Users can search by title and update titles, urls, and details field accordingly.
+This Bookmarker has full CRUD (Create, Read, Update, Delete) capability. Users can add bookmarks by including webpage title, url and details. Users can also update and delete a bookmark's title, url and details field by searching for the bookmark's associated webpage title.
 
 # Technologies
 
