@@ -1,9 +1,8 @@
 from model import Bookmark
 from model import db
-
+import re
 mycursor = db.cursor()
 # mycursor.execute("SELECT * FROM Bookmark")
-
 # myresult = mycursor.fetchall()
 # for x in myresult:
 #     print(x)
@@ -27,8 +26,8 @@ def greet_user():
     elif num_select == '2':
         search_bookmark()
 
-    # # elif num_select == '3':
-    # #     # update_bookmark()
+    elif num_select == '3':
+        update_bookmark()
 
     # # elif num_select == '4':
     # #     # delete_bookmark()
@@ -41,6 +40,7 @@ def new_bookmark():
     if user_answer == 'y':
         add_bookmark()
     if user_answer == 'n':
+        print("Exiting...")
         exit()
 
 def add_bookmark():
@@ -71,14 +71,60 @@ pass
 
 def search_bookmark():
     search_title = input(f'Enter bookmark title: ')
-    # if search_title == Bookmark.title:
-    mycursor.execute(f"SELECT * FROM Bookmark WHERE title = '{search_title}'",)
-    myresult = mycursor.fetchone()
-    print(myresult)
-    # else:
-        # print("whoops error")
+    if search_title.lower():
+        mycursor.execute(f"SELECT * FROM Bookmark WHERE lower(title) = '{search_title}'")
+        myresult = mycursor.fetchone()
+        print(myresult)
 
-# def update_bookmark():
+    elif search_title.upper():
+        mycursor.execute(f"SELECT * FROM Bookmark WHERE upper(title) = '{search_title}'")
+        myresult = mycursor.fetchone()
+        print(myresult)
+    else:
+        print("Error. Invalid input.")
+
+def update_bookmark():
+        print('\n Update options are listed below: \n')
+        print(' a = Update Title')
+        print(' b = Update URL')
+        print(' c = Update Details\n')
+        field_update = input(f'Select the letter of the field you would like to update: ')
+
+        if field_update == 'a':
+            print('You have selected to update a bookmark title!')
+            selected_title = input(f'Enter the TITLE of the bookmark you want to update: ')
+            mycursor.execute(f"SELECT * FROM Bookmark WHERE lower(title) = '{selected_title}'")
+            title_change = input(f'Enter your title changes here: ')
+            mycursor.execute(f"UPDATE Bookmark SET title = '{title_change}' WHERE title = '{selected_title}'")
+            db.commit()
+            mycursor.execute(f"SELECT * FROM Bookmark WHERE title = '{title_change}'")
+            updatedrecord = mycursor.fetchone()
+            print(updatedrecord)
+        elif field_update == 'b':
+            print('You have selected to update a bookmark link!')
+            selected_link = input(f'Enter the TITLE of the bookmark link you want to update: ')
+            mycursor.execute(f"SELECT * FROM Bookmark WHERE lower(title) = '{selected_link}'")
+            link_change = input(f'Enter your new link here: ')
+            mycursor.execute(f"UPDATE Bookmark SET link = '{link_change}' WHERE title = '{selected_link}'")
+            db.commit()
+            mycursor.execute(f"SELECT * FROM Bookmark WHERE link = '{link_change}'")
+            updatedrecord = mycursor.fetchone()
+            print(updatedrecord)
+        elif field_update == 'c':
+            print('You have selected to update a bookmark link!')
+            selected_details = input(f'Enter the TITLE of the bookmark details you want to update: ')
+            mycursor.execute(f"SELECT * FROM Bookmark WHERE lower(title) = '{selected_details}'")
+            details_change = input(f'Enter new details information here: ')
+            mycursor.execute(f"UPDATE Bookmark SET details = '{details_change}' WHERE title = '{selected_details}'")
+            db.commit()
+            mycursor.execute(f"SELECT * FROM Bookmark WHERE details = '{details_change}'")
+            updatedrecord = mycursor.fetchone()
+            print(updatedrecord)
+        else :
+            print("Invalid input. Exiting...")
+            exit()
+
+
 # def delete_bookmark():
 
 greet_user()
