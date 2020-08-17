@@ -17,7 +17,8 @@ def greet_user():
     print(f'|  1 = Add a Bookmark     |')
     print(f'|  2 = Search a Bookmark  |')
     print(f'|  3 = Update a Bookmark  |')
-    print(f'|  4 = Delete a Bookmark  |\n')
+    print(f'|  4 = Delete a Bookmark  |')
+    print(f'|  5 = Displays all Bookmarks  |\n')
 
     num_select = input(f'Type number selection here: ')
     if num_select == '1':
@@ -29,8 +30,11 @@ def greet_user():
     elif num_select == '3':
         update_bookmark()
 
-    # # elif num_select == '4':
-    # #     # delete_bookmark()
+    elif num_select == '4':
+        delete_bookmark()
+    
+    elif num_select == '5':
+        display_all()
 
     else: 
         print("Selection input not valid.")
@@ -49,6 +53,7 @@ def add_bookmark():
     temp_details = add_details()
     bm = Bookmark(title=temp_title, link=temp_link, details=temp_details)
     bm.save()
+    print('Your bookmark was added!')
 pass
 
 def add_title():
@@ -111,7 +116,7 @@ def update_bookmark():
         updatedrecord = mycursor.fetchone()
         print(updatedrecord)
     elif field_update == 'c':
-        print('You have selected to update a bookmark link!')
+        print('You have selected to update a bookmark details!')
         selected_details = input(f'Enter the TITLE of the bookmark details you want to update: ')
         mycursor.execute(f"SELECT * FROM Bookmark WHERE lower(title) = '{selected_details}'")
         details_change = input(f'Enter new details information here: ')
@@ -125,26 +130,27 @@ def update_bookmark():
         exit()
 
 
-# def delete_bookmark():
+def delete_bookmark():
+    print('You have selected to delete a bookmark. ')
+    delete_option = input(f'Enter the TITLE of the bookmark you want to update: ')
+    mycursor.execute(f"SELECT * FROM Bookmark WHERE lower(title) = '{delete_option}'")
+    confirm = input(f'Are you sure you want to delete this record? (y/n) ')
+
+    if confirm == 'y':
+        mycursor.execute(f"DELETE FROM Bookmark WHERE lower (title) = '{delete_option}'")
+        db.commit()
+        print(f"You have deleted '{delete_option}' from your table.")
+    elif confirm  == 'n':
+        print('Exiting...')
+    else:
+        print('Invalid input. Exiting...')
+
+def display_all():
+    mycursor.execute(f"SELECT title, link, details FROM Bookmark")
+    all_bookmarks = mycursor.fetchall()
+    print(all_bookmarks)
+    
+
 
 greet_user()
 
-
-
-# class BookmarkApp:
-#     def __init__(self, title, link, details):
-#         self.title = []
-#         self.link = []
-#         self.details = []
-
-#     def append(self, title, link, details):
-#         if isinstance(temp_title, title):
-#             self.title.append(title)
-#         if isinstance(temp.link, link):
-#             self.link.append(link)
-#         if isinstance(temp_details, details):
-#             self.details.append(details)
-# pass
-
-# new_bookmark = BookmarkApp()
-# print(new_bookmark)
