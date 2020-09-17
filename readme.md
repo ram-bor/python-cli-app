@@ -1,4 +1,4 @@
-# Bookmarker Collector App 
+# Bookmarker Collector 
 
 Bookmarker Collector is a Python command line application designed for users to keep track of their favorite websites.
 ## Description
