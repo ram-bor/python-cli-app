@@ -1,16 +1,18 @@
 # Bookmarker Collector App
 
-# Description
+## Description
 
 This Bookmarker has full CRUD (Create, Read, Update, Delete) capability. Users can add bookmarks by including webpage title, url and details. Users can make updates to a bookmark's title, url and details field by searching for the bookmark's associated webpage title and delete bookmark records in a similar way.
 
-# Technologies
+![bookmark-cli-app.gif]
+
+## Technologies
 
 - Python3
 - PostgreSQL
 - PeeWee
 
-# Installation
+## Installation
 
 Install dependencies:
 
