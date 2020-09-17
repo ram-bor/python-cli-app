@@ -1,5 +1,4 @@
-# Bookmark Collector 
-
+# Bookmark Collector 👩🏻‍💻 👨🏻‍💻
 Bookmark Collector is a Python command line application designed for users to keep track of their favorite websites.
 ## Description
 
