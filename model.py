@@ -22,7 +22,7 @@ class Bookmark(BaseModel):
     timestamp = DateTimeField(default=datetime.datetime.now)
 
 
-db.create_tables([Bookmark])
+db.create_table([Bookmark])
 
 # test query
 # codepip = Bookmark(
