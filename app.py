@@ -59,19 +59,19 @@ pass
 def add_title():
     bookmark_title = input(f'Please enter a webpage title: ')   
     return bookmark_title
-    bookmark_title.save()
+    # bookmark_title.save()
 pass
 
 def add_link():
     bookmark_link = input(f'Please add webpage url: ')
     return bookmark_link
-    bookmark_link.save()
+    # bookmark_link.save()
 pass    
 
 def add_details():
     bookmark_details = input(f'Please add any webpage details: ')    
     return bookmark_details
-    bookmark_details.save()
+    # bookmark_details.save()
 pass
 
 def search_bookmark():
